@@ -1,90 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Notas</title>
+  <meta charset="UTF-8">
+  <title>Notas finales</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
+      background-color: #f0f4f8;
+      text-align: center;
       padding: 20px;
     }
 
     h1 {
-      text-align: center;
       color: #333;
     }
 
-    .materia {
+    .card {
       background-color: white;
-      padding: 15px;
-      margin: 10px auto;
-      border-radius: 8px;
-      max-width: 500px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
     }
 
-    .materia h2 {
-      margin-top: 0;
-      color: #005f73;
-    }
-
-    .notas {
+    .card h2 {
+      color: #444;
       margin-bottom: 10px;
     }
 
-    .ponderacion {
-      font-size: 0.9em;
-      color: #555;
+    .nota-final {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2a7;
     }
 
-    .salir {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-    }
-
-    .salir img {
-      width: 30px;
-      height: 30px;
+    .reprobado {
+      color: #d00;
     }
   </style>
 </head>
 <body>
-  <div class="salir">
-    <img src="salir-icon.png" alt="Salir">
-  </div>
+  <h1>Notas finales del semestre</h1>
 
-  <h1>Notas Finales</h1>
-
-  <div class="materia">
+  <div class="card">
     <h2>Física</h2>
-    <div class="notas">Parcial 1: 57</div>
-    <div class="notas">Parcial 2: 85</div>
-    <div class="notas">Nota del Ingeniero: 92</div>
-    <div class="ponderacion">Ponderación: 40% Parcial 1, 40% Parcial 2, 20% Ingeniero</div>
-    <strong>Nota Final: 75</strong>
+    <p>Primer Parcial: 57</p>
+    <p>Segundo Parcial: 85</p>
+    <p>Nota del Ingeniero: 95</p>
+    <p class="nota-final">Nota Final: 75</p>
+    <p><small>Ponderación: 40% + 40% + 20%</small></p>
   </div>
 
-  <div class="materia">
+  <div class="card">
     <h2>Química</h2>
-    <div class="notas">Parcial 1: 82</div>
-    <div class="notas">Parcial 2: 90</div>
-    <div class="notas">Nota del Ingeniero: 88</div>
-    <div class="ponderacion">Ponderación: 40% Parcial 1, 40% Parcial 2, 20% Ingeniero</div>
-    <strong>Nota Final: 86</strong>
+    <p>Primer Parcial: 82</p>
+    <p>Segundo Parcial: 90</p>
+    <p>Nota del Ingeniero: 70</p>
+    <p class="nota-final">Nota Final: 83</p>
+    <p><small>Ponderación: 40% + 40% + 20%</small></p>
   </div>
 
-  <div class="materia">
+  <div class="card">
     <h2>Matemáticas</h2>
-    <div class="notas">Parcial 1: 62</div>
-    <div class="notas">Parcial 2: 34</div>
-    <div class="notas">Nota del Ingeniero: 43</div>
-    <div class="ponderacion">Ponderación: 40% Parcial 1, 40% Parcial 2, 20% Ingeniero</div>
-    <strong>Nota Final: 48</strong>
+    <p>Primer Parcial: 62</p>
+    <p>Segundo Parcial: 34</p>
+    <p>Nota del Ingeniero: 40</p>
+    <p class="nota-final reprobado">Nota Final: 48</p>
+    <p><small>Ponderación: 40% + 40% + 20%</small></p>
   </div>
-
 </body>
 </html>
