@@ -1,3 +1,13 @@
+.salir img {
+  height: 40px;
+  width: auto;
+}
+
+h1 img {
+  height: 40px;
+  width: auto;
+  vertical-align: middle;
+}
 /* General Styles */
 body {
     font-family: "Arial", sans-serif;
