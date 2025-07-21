@@ -1,74 +1,129 @@
+<!-- Asegúrate de pegar esto en tu archivo index.html o principal -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Notas finales</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notas</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f4f8;
-      text-align: center;
-      padding: 20px;
+      font-family: sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     h1 {
-      color: #333;
+      margin-top: 1rem;
     }
 
-    .card {
-      background-color: white;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 400px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: left;
+    .btn-container {
+      margin: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .card h2 {
-      color: #444;
-      margin-bottom: 10px;
-    }
-
-    .nota-final {
-      font-size: 18px;
+    .btn {
+      background: white;
+      color: black;
+      border: 2px solid #ccc;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
       font-weight: bold;
-      color: #2a7;
+      transition: all 0.3s ease;
     }
 
-    .reprobado {
-      color: #d00;
+    .btn:hover {
+      background: #e0e0e0;
+    }
+
+    .notas {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .nota {
+      margin: 0.5rem 0;
+    }
+
+    .ponderacion {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    .oculto {
+      display: none;
+    }
+
+    .salir {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 30px;
     }
   </style>
 </head>
 <body>
-  <h1>Notas finales del semestre</h1>
 
-  <div class="card">
+  <img src="salir-icon.png" class="salir" alt="Salir" />
+
+  <h1>Ver notas de:</h1>
+  <div class="btn-container">
+    <button class="btn" onclick="mostrarNotas('fisica')">Física</button>
+    <button class="btn" onclick="mostrarNotas('quimica')">Química</button>
+    <button class="btn" onclick="mostrarNotas('mate')">Matemáticas</button>
+  </div>
+
+  <div id="fisica" class="notas oculto">
     <h2>Física</h2>
-    <p>Primer Parcial: 57</p>
-    <p>Segundo Parcial: 85</p>
-    <p>Nota del Ingeniero: 95</p>
-    <p class="nota-final">Nota Final: 75</p>
-    <p><small>Ponderación: 40% + 40% + 20%</small></p>
+    <p class="nota">Nota 1: 70</p>
+    <p class="nota">Nota 2: 85</p>
+    <p class="nota">Nota 3: 90</p>
+    <p class="ponderacion">Ponderación: <span id="pond-fisica"></span></p>
   </div>
 
-  <div class="card">
+  <div id="quimica" class="notas oculto">
     <h2>Química</h2>
-    <p>Primer Parcial: 82</p>
-    <p>Segundo Parcial: 90</p>
-    <p>Nota del Ingeniero: 70</p>
-    <p class="nota-final">Nota Final: 83</p>
-    <p><small>Ponderación: 40% + 40% + 20%</small></p>
+    <p class="nota">Nota 1: 60</p>
+    <p class="nota">Nota 2: 75</p>
+    <p class="nota">Nota 3: 80</p>
+    <p class="ponderacion">Ponderación: <span id="pond-quimica"></span></p>
   </div>
 
-  <div class="card">
+  <div id="mate" class="notas oculto">
     <h2>Matemáticas</h2>
-    <p>Primer Parcial: 62</p>
-    <p>Segundo Parcial: 34</p>
-    <p>Nota del Ingeniero: 40</p>
-    <p class="nota-final reprobado">Nota Final: 48</p>
-    <p><small>Ponderación: 40% + 40% + 20%</small></p>
+    <p class="nota">Nota 1: 80</p>
+    <p class="nota">Nota 2: 90</p>
+    <p class="nota">Nota 3: 85</p>
+    <p class="ponderacion">Ponderación: <span id="pond-mate"></span></p>
   </div>
+
+  <script>
+    function mostrarNotas(materia) {
+      const secciones = document.querySelectorAll('.notas');
+      secciones.forEach(sec => sec.classList.add('oculto'));
+      document.getElementById(materia).classList.remove('oculto');
+    }
+
+    function calcularPonderacion(id, notas) {
+      const suma = notas.reduce((acc, val) => acc + val, 0);
+      const promedio = Math.round(suma / notas.length);
+      document.getElementById(id).innerText = promedio;
+    }
+
+    calcularPonderacion('pond-fisica', [70, 85, 90]);
+    calcularPonderacion('pond-quimica', [60, 75, 80]);
+    calcularPonderacion('pond-mate', [80, 90, 85]);
+  </script>
 </body>
 </html>
