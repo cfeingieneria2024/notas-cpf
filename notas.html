@@ -3,110 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Notas de Materias</title>
+  <title>Notas</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f0f0;
+      background-color: #f2f2f2;
       margin: 0;
-      padding: 0;
-      text-align: center;
+      padding: 20px;
     }
-    header {
-      background: #0066cc;
-      color: white;
-      padding: 1em;
-    }
+
     h1 {
-      margin: 0.5em 0;
+      text-align: center;
+      color: #333;
     }
-    .materia-btns {
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-      margin-top: 1em;
-      flex-wrap: wrap;
-    }
-    button {
-      padding: 1em;
-      font-size: 16px;
-      border: none;
+
+    .materia {
+      background-color: white;
+      padding: 15px;
+      margin: 10px auto;
       border-radius: 8px;
-      background-color: #0099ff;
-      color: white;
-      cursor: pointer;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    button:hover {
-      background-color: #007acc;
+
+    .materia h2 {
+      margin-top: 0;
+      color: #005f73;
     }
+
     .notas {
-      display: none;
-      margin-top: 2em;
+      margin-bottom: 10px;
     }
-    .visible {
-      display: block;
+
+    .ponderacion {
+      font-size: 0.9em;
+      color: #555;
     }
-    table {
-      margin: 0 auto;
-      border-collapse: collapse;
-      background: white;
-    }
-    td, th {
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
+
     .salir {
-      position: absolute;
-      top: 10px;
-      right: 10px;
+      position: fixed;
+      top: 20px;
+      right: 20px;
     }
+
     .salir img {
+      width: 30px;
       height: 30px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ver notas de:</h1>
-    <div class="materia-btns">
-      <button onclick="mostrarNotas('quimica')">Química</button>
-      <button onclick="mostrarNotas('fisica')">Física</button>
-      <button onclick="mostrarNotas('matematica')">Matemática</button>
-    </div>
-    <div class="salir">
-      <img src="salir-icon.png" alt="Salir">
-    </div>
-  </header>
-
-  <div id="quimica" class="notas">
-    <h2>Notas - Química</h2>
-    <table>
-      <tr><th>Primer Parcial</th><th>Segundo Parcial</th><th>Nota Ingeniero</th><th>Nota Final</th></tr>
-      <tr><td>82</td><td>90</td><td>80</td><td><strong>84</strong></td></tr>
-    </table>
+  <div class="salir">
+    <img src="salir-icon.png" alt="Salir">
   </div>
 
-  <div id="fisica" class="notas">
-    <h2>Notas - Física</h2>
-    <table>
-      <tr><th>Primer Parcial</th><th>Segundo Parcial</th><th>Nota Ingeniero</th><th>Nota Final</th></tr>
-      <tr><td>57</td><td>85</td><td>88</td><td><strong>74</strong></td></tr>
-    </table>
+  <h1>Notas Finales</h1>
+
+  <div class="materia">
+    <h2>Física</h2>
+    <div class="notas">Parcial 1: 57</div>
+    <div class="notas">Parcial 2: 85</div>
+    <div class="notas">Nota del Ingeniero: 92</div>
+    <div class="ponderacion">Ponderación: 40% Parcial 1, 40% Parcial 2, 20% Ingeniero</div>
+    <strong>Nota Final: 75</strong>
   </div>
 
-  <div id="matematica" class="notas">
-    <h2>Notas - Matemática</h2>
-    <table>
-      <tr><th>Primer Parcial</th><th>Segundo Parcial</th><th>Nota Ingeniero</th><th>Nota Final</th></tr>
-      <tr><td>62</td><td>34</td><td>30</td><td><strong>48</strong></td></tr>
-    </table>
+  <div class="materia">
+    <h2>Química</h2>
+    <div class="notas">Parcial 1: 82</div>
+    <div class="notas">Parcial 2: 90</div>
+    <div class="notas">Nota del Ingeniero: 88</div>
+    <div class="ponderacion">Ponderación: 40% Parcial 1, 40% Parcial 2, 20% Ingeniero</div>
+    <strong>Nota Final: 86</strong>
   </div>
 
-  <script>
-    function mostrarNotas(materia) {
-      document.querySelectorAll('.notas').forEach(div => div.classList.remove('visible'));
-      document.getElementById(materia).classList.add('visible');
-    }
-  </script>
+  <div class="materia">
+    <h2>Matemáticas</h2>
+    <div class="notas">Parcial 1: 62</div>
+    <div class="notas">Parcial 2: 34</div>
+    <div class="notas">Nota del Ingeniero: 43</div>
+    <div class="ponderacion">Ponderación: 40% Parcial 1, 40% Parcial 2, 20% Ingeniero</div>
+    <strong>Nota Final: 48</strong>
+  </div>
+
 </body>
 </html>
